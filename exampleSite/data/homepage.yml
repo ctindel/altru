@@ -1,0 +1,72 @@
+slider:
+  subtitle: "Every action counts for our planet"
+  title: "Building a Sustainable Future Together"
+  description: "From planting trees to protecting endangered species, your support fuels real change. Join Altru in the fight to preserve our ecosystems and create a healthier world for generations to come."
+  button_text: "Donate Now"
+  button_url: "/donation/"
+
+intro:
+  subtitle: "How you can help"
+  title: "Together We Can Restore and Protect Our Natural World"
+  description: "At Altru, we believe that meaningful conservation starts with community action. Whether you are restoring forests, funding critical habitat protection, or volunteering in the field, every effort adds up. Our programs span reforestation, wildlife corridors, marine cleanup, and sustainable agriculture to tackle environmental challenges at every level."
+  items:
+    - title: "Plant Trees"
+      image: "images/about/image-1.jpg"
+      description: "Join our reforestation campaigns to restore degraded landscapes, sequester carbon, and rebuild habitats for native wildlife across the globe."
+    - title: "Fund Conservation"
+      image: "images/about/image-2.jpg"
+      description: "Your donations directly support land acquisition, habitat restoration, and scientific research that keeps critical ecosystems thriving."
+    - title: "Volunteer Outdoors"
+      image: "images/about/image-3.jpg"
+      description: "Get your hands dirty with trail restoration, river cleanups, and wildlife monitoring projects in parks and preserves near you."
+    - title: "Protect Wildlife"
+      image: "images/about/image-4.jpg"
+      description: "Help safeguard endangered species through anti-poaching patrols, breeding programs, and the creation of protected wildlife corridors."
+
+video:
+  title: "See the Environmental Impact We Are Making Together"
+  image: "images/bg/bg-3.jpg"
+  youtube_id: "LjCzPp-MK48"
+  counters:
+    - count: "2500000"
+      label: "Trees Planted"
+    - count: "185000"
+      label: "Acres Protected"
+    - count: "312"
+      label: "Species Saved"
+    - count: "4700"
+      label: "Active Volunteers"
+
+gallery:
+  subtitle: "Our Gallery"
+  title: "Explore the forests, coastlines, and wild spaces we are working to protect. Every image tells a story of resilience and renewal."
+  images:
+    - "images/gallery/1.jpg"
+    - "images/gallery/2.jpg"
+    - "images/gallery/3.jpg"
+    - "images/gallery/4.jpg"
+    - "images/gallery/5.jpg"
+    - "images/gallery/6.jpg"
+    - "images/gallery/9.jpg"
+    - "images/gallery/8.jpg"
+
+cta:
+  title: "The planet does not wait. Neither should we. Take action today."
+  button_text: "Protect the Planet"
+  button_url: "/donation/"
+
+volunteer:
+  image: "images/bg/image-5.jpg"
+  title: "Join the Movement to Defend Our Environment"
+  description: "Whether you have an afternoon or a lifetime to give, there is a place for you in the Altru community. Our volunteers lead reforestation drives, monitor wildlife populations, organize shoreline cleanups, and advocate for stronger environmental policy. Together, we are building a network of changemakers committed to leaving the earth better than we found it."
+  partners:
+    - name: "GreenRoot Alliance"
+      logo: "images/clients/client1.png"
+    - name: "OceanGuard Foundation"
+      logo: "images/clients/client2.png"
+    - name: "Wildlands Trust"
+      logo: "images/clients/client4.png"
+    - name: "TerraNova Collective"
+      logo: "images/clients/client5.png"
+    - name: "EcoForward Initiative"
+      logo: "images/clients/client6.png"

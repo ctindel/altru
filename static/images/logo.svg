@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" width="220" height="50">
+  <defs>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f89d35"/>
+      <stop offset="100%" style="stop-color:#e8871f"/>
+    </linearGradient>
+  </defs>
+  <!-- Leaf icon -->
+  <g transform="translate(5, 5)">
+    <path d="M20 5 C15 5, 8 10, 8 20 C8 28, 12 33, 20 35 C20 35, 20 20, 30 10 C28 8, 24 5, 20 5 Z" fill="url(#heartGrad)"/>
+    <path d="M20 35 L20 15" fill="none" stroke="#863bae" stroke-width="1.5"/>
+    <path d="M20 25 L15 20" fill="none" stroke="#863bae" stroke-width="1.2"/>
+    <path d="M20 20 L25 16" fill="none" stroke="#863bae" stroke-width="1.2"/>
+  </g>
+  <!-- Text: Altru -->
+  <text x="52" y="33" font-family="'Bitter', serif" font-weight="900" font-size="30" fill="#232323" letter-spacing="1">Altru</text>
+  <!-- Tagline -->
+  <text x="52" y="45" font-family="'Montserrat', sans-serif" font-weight="600" font-size="8" fill="#863bae" letter-spacing="2" text-transform="uppercase">PROTECTING OUR PLANET</text>
+</svg>

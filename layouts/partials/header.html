@@ -1,0 +1,15 @@
+<!-- Header Top Start -->
+<div class="header-top">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="header-top-social justify-content-end">
+          {{ range .Site.Params.social }}
+          <a href="{{ .url }}" target="_blank" title="{{ .name }}"><i class="fa-brands fa-{{ .icon }}"></i></a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header Top End -->

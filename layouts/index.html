@@ -1,0 +1,251 @@
+{{ define "main" }}
+{{ $data := .Site.Data.homepage }}
+
+<!-- Slider Start -->
+<section class="slider">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-10">
+        <div class="slider-content text-center">
+          <span class="d-block mb-3 text-white text-capitalize">{{ $data.slider.subtitle | default "Small help can make change" }}</span>
+          <h1 class="mb-4">{{ $data.slider.title | default "New hope for near future" }}</h1>
+          <p class="mb-5">{{ $data.slider.description | default "Your small contribution means a lot." }}</p>
+          <a href="{{ $data.slider.button_url | default "#" }}" class="btn btn-main rounded">{{ $data.slider.button_text | default "Donate Now" }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Slider End -->
+
+<!-- Intro Section Start -->
+<section class="section intro">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6">
+        <div class="section-title mb-0">
+          <span class="text-color">{{ $data.intro.subtitle | default "What we can do" }}</span>
+          <h2 class="mt-3 content-title">{{ $data.intro.title | default "We Believe that We can Save More Lifes with you" }}</h2>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p>{{ $data.intro.description | default "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }}</p>
+      </div>
+    </div>
+    <div class="row">
+      {{ range $data.intro.items }}
+      <div class="col-lg-3 col-md-6">
+        <div class="intro-item mb-5 mb-lg-0">
+          <img src="{{ .image | relURL }}" alt="{{ .title }}" class="w-100">
+          <h4 class="mt-4 mb-3">{{ .title }}</h4>
+          <p>{{ .description }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<!-- Intro Section End -->
+
+<!-- Video Section Start -->
+<section class="section video">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="video-content">
+          <h2 class="mt-3 mb-5 position-relative text-lg text-white">{{ $data.video.title | default "We Make a Difference in their Life" }}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="video-block">
+          <div class="img-block">
+            <img src="{{ $data.video.image | default "images/bg/bg-3.jpg" | relURL }}" alt="" class="w-100">
+          </div>
+          <a href="https://www.youtube.com/watch?v={{ $data.video.youtube_id | default "sXoKSD8QJEA" }}" class="video-play-btn">
+            <i class="fa-solid fa-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="counter-section">
+      <div class="row">
+        {{ range $data.video.counters }}
+        <div class="col-lg-3 col-md-6">
+          <div class="counter-item-2 pt-5">
+            <span class="counter-stat font-weight-bold text-color">{{ .count }}</span>
+            <p>{{ .label }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Video Section End -->
+
+<!-- Gallery Section Start -->
+<section class="section gallery">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="section-title text-center">
+          <span class="text-color">{{ $data.gallery.subtitle | default "Our Gallery" }}</span>
+          <h2 class="mt-3 mb-5 content-title">{{ $data.gallery.title | default "We connect with people across different sectors." }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="gallery-wrap">
+      <div class="row">
+        {{ range $i, $img := $data.gallery.images }}
+        {{ if lt $i 6 }}
+        <div class="col-lg-4 col-md-6">
+        {{ else }}
+        <div class="col-lg-6 col-md-6">
+        {{ end }}
+          <div class="gallery-item mb-4">
+            <a href="{{ $img | relURL }}" class="gallery-popup">
+              <img src="{{ $img | relURL }}" alt="" class="w-100">
+            </a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Gallery Section End -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-divider"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Causes Section Start -->
+<section class="section causes">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-8">
+        <div class="section-title text-center">
+          <span class="text-color">Current Initiatives</span>
+          <h2 class="mt-3 mb-4 content-title">Our Active Conservation Projects</h2>
+          <p class="mb-4">We run targeted programs in reforestation, ocean cleanup, and wildlife protection to create measurable environmental impact.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {{ range first 3 (where .Site.RegularPages "Section" "causes") }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="cause-item">
+          <a href="{{ .RelPermalink }}"><img src="{{ .Params.image | relURL }}" class="w-100" alt="{{ .Title }}"></a>
+          <div class="card-body">
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ with .Params.goal }}
+            <ul class="list-inline border-bottom border-top py-3 mb-3">
+              <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Goal: <span class="font-weight-bold">${{ . }}</span></li>
+              <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Raised: <span class="font-weight-bold">${{ $.Params.raised }}</span></li>
+            </ul>
+            {{ end }}
+            <p class="card-text mb-4">{{ .Summary | truncate 150 }}</p>
+            <a href="{{ "donation/" | relURL }}" class="btn btn-main rounded">Donate Now</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<!-- Causes Section End -->
+
+<!-- CTA Block Start -->
+<div class="cta-block section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="cta-content text-center">
+          <h2 class="text-white text-lg mb-5 mt-3">{{ $data.cta.title | default "We can't help everyone, but everyone can help someone" }}</h2>
+          <a href="{{ $data.cta.button_url | default "/donation/" | relURL }}" class="btn btn-main rounded">{{ $data.cta.button_text | default "Make a donation" }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CTA Block End -->
+
+<!-- Latest Blog Start -->
+<section class="section latest-blog">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <div class="section-title">
+          <span class="h6 text-color">Latest News</span>
+          <h2 class="mt-3 content-title">Stories from the field</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="blog-item">
+          <a href="{{ .RelPermalink }}"><img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="w-100"></a>
+          <div class="card-body mt-2">
+            <span class="text-sm text-color text-uppercase font-weight-bold">{{ .Date.Format "January 2, 2006" }}</span>
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p class="mb-4"><a href="{{ .RelPermalink }}" class="text-body">{{ .Summary | truncate 120 }}</a></p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<!-- Latest Blog End -->
+
+<!-- Volunteer Section Start -->
+<div class="volunteer section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="volunteer-content">
+          <img src="{{ $data.volunteer.image | default "images/bg/image-5.jpg" | relURL }}" alt="" class="w-100">
+          <h2 class="text-lg mb-4 mt-3">{{ $data.volunteer.title | default "We can't help everyone, but everyone can help someone" }}</h2>
+          <p>{{ $data.volunteer.description | default "Assumenda reiciendis delectus dolore incidunt molestias omnis quo quaerat voluptate." }}</p>
+          <h2 class="mt-5 mb-4">Trusted worldwide partner</h2>
+          <div class="clients-wrap">
+            {{ range $data.volunteer.partners }}
+            <a href="#">
+              <img src="{{ .logo | relURL }}" alt="{{ .name }}">
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="volunteer-form-wrap">
+          <span class="text-white">Join With us</span>
+          <h2 class="mb-5 text-lg text-white">Become A Volunteer</h2>
+          <form action="{{ .Site.Params.formspree_url | default "#" }}" method="POST" class="volunteer-form">
+            <div class="mb-3"><input type="text" class="form-control" name="name" placeholder="Full Name"></div>
+            <div class="mb-3"><input type="email" class="form-control" name="email" placeholder="Email Address"></div>
+            <div class="mb-3"><input type="text" class="form-control" name="phone" placeholder="Phone Number"></div>
+            <div class="mb-3"><input type="text" class="form-control" name="address" placeholder="Address"></div>
+            <div class="mb-3"><input type="text" class="form-control" name="occupation" placeholder="Occupation"></div>
+            <div class="mb-3"><textarea name="message" cols="30" rows="6" class="form-control" placeholder="Your Message"></textarea></div>
+            <button type="submit" class="btn btn-main rounded mt-4">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Volunteer Section End -->
+
+{{ end }}

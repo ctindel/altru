@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section event">
+  <div class="container">
+    <div class="row">
+      {{ range .Pages }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card event-item shadow-none">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" class="w-100" alt="{{ $.Title }}">
+          {{ end }}
+          <div class="card-body">
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | truncate 100 }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            {{ with .Params.date_text }}<li class="list-group-item"><strong>Date : </strong>{{ . }}</li>{{ end }}
+            {{ with .Params.location }}<li class="list-group-item"><strong>Location : </strong>{{ . }}</li>{{ end }}
+            {{ with .Params.organizer }}<li class="list-group-item"><strong>Organizer : </strong>{{ . }}</li>{{ end }}
+          </ul>
+          <a href="{{ .RelPermalink }}" class="btn btn-main-2 d-block text-center">Learn More</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,12 @@
+name = "Altru"
+license = "MIT"
+description = "Nonprofit Charity Fundraising Hugo Theme"
+min_version = "0.60.0"
+
+[author]
+  name = "Themefisher"
+  homepage = "https://themefisher.com"
+
+[params]
+  primary_color = "#f89d35"
+  secondary_color = "#863bae"

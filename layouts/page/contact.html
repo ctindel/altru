@@ -1,0 +1,84 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="contact-content">
+          <h2 class="mb-5">{{ .Params.heading | default "We'd love to hear from you!" }}</h2>
+          <ul class="address-block list-unstyled">
+            {{ with .Site.Params.contact_address }}
+            <li>
+              <h6 class="mb-2">Address</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+            {{ with .Site.Params.email }}
+            <li>
+              <h6 class="mb-2">Email Us</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+            {{ with .Site.Params.phone }}
+            <li>
+              <h6 class="mb-2">Phone Number</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+          </ul>
+          <ul class="social-icons list-inline mt-5">
+            <li><h6 class="mb-3">Find us on social media</h6></li>
+            {{ range .Site.Params.social }}
+            <li class="list-inline-item"><a href="{{ .url }}" target="_blank"><i class="fa-brands fa-{{ .icon }} mr-2"></i></a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 offset-lg-1">
+        <div class="google-map">
+          <div id="map" style="height: 350px; width: 100%; background: #eee;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-wrap pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form action="{{ .Site.Params.formspree_url | default "#" }}" method="POST" class="contact__form">
+          <span class="text-color">Send a message</span>
+          <h3 class="text-md mb-4">Contact Form</h3>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Your Name *</label>
+              <input name="name" type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Email *</label>
+              <input name="email" type="email" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Subject *</label>
+              <input name="subject" type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Phone Number *</label>
+              <input name="phone" type="tel" class="form-control">
+            </div>
+            <div class="col-12 mb-3">
+              <label>Your Message *</label>
+              <textarea name="message" class="form-control" rows="6"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-main rounded" type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

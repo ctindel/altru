@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section page-title-next">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          {{ .Content }}
+        </div>
+        <form action="{{ .Site.Params.formspree_url | default "#" }}" method="POST" class="donation-form">
+          <div class="row">
+            <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control" placeholder="Full Name"></div>
+            <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control" placeholder="Email Address"></div>
+            <div class="col-md-6 mb-3"><input type="tel" name="phone" class="form-control" placeholder="Phone Number"></div>
+            <div class="col-md-6 mb-3"><input type="text" name="amount" class="form-control" placeholder="Donation Amount ($)"></div>
+            <div class="col-12 mb-3"><textarea name="message" rows="5" class="form-control" placeholder="Your Message"></textarea></div>
+            <div class="col-12 text-center"><button type="submit" class="btn btn-main rounded btn-lg">Donate Now</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

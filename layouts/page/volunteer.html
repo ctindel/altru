@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section page-title-next">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <form action="{{ .Site.Params.formspree_url | default "#" }}" method="POST" class="volunteer-form-page">
+          <div class="row">
+            <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control" placeholder="Full Name"></div>
+            <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control" placeholder="Email Address"></div>
+            <div class="col-md-6 mb-3"><input type="tel" name="phone" class="form-control" placeholder="Phone Number"></div>
+            <div class="col-md-6 mb-3"><input type="text" name="address" class="form-control" placeholder="Address"></div>
+            <div class="col-md-6 mb-3"><input type="text" name="occupation" class="form-control" placeholder="Occupation"></div>
+            <div class="col-md-6 mb-3"><input type="text" name="skills" class="form-control" placeholder="Skills"></div>
+            <div class="col-12 mb-3"><textarea name="message" rows="6" class="form-control" placeholder="Your Message"></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-main rounded">Submit Application</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

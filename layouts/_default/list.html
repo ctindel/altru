@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      {{ range .Pages }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="blog-item">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-100">
+          {{ end }}
+          <div class="card-body">
+            <span class="text-sm text-color text-uppercase font-weight-bold">{{ .Date.Format "January 2, 2006" }}</span>
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | truncate 150 }}</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-main rounded mt-3">Learn More</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</section>
+{{ end }}

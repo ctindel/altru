@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section causes">
+  <div class="container">
+    <div class="row">
+      {{ range .Pages }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="cause-item">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" class="w-100" alt="{{ $.Title }}">
+          {{ end }}
+          <div class="card-body">
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ with .Params.goal }}
+            <ul class="list-inline border-bottom border-top py-3 mb-3">
+              <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Goal: <span class="font-weight-bold">${{ . }}</span></li>
+              <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Raised: <span class="font-weight-bold">${{ $.Params.raised }}</span></li>
+            </ul>
+            {{ end }}
+            <p class="card-text mb-4">{{ .Summary | truncate 150 }}</p>
+            <a href="{{ "donation/" | relURL }}" class="btn btn-main rounded">Donate Now</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Block -->
+<div class="cta-block section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="cta-content text-center">
+          <h2 class="text-white text-lg mb-5 mt-3">The earth does not belong to us. We belong to the earth.</h2>
+          <a href="{{ "donation/" | relURL }}" class="btn btn-main rounded">Make a donation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

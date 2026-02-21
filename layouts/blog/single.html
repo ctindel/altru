@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section blog-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="single-blog-item">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-100 mb-4">
+          {{ end }}
+
+          <div class="blog-item-meta mb-4">
+            <span class="text-color text-uppercase mr-3"><i class="fa-regular fa-calendar mr-1"></i>{{ .Date.Format "January 2, 2006" }}</span>
+            {{ with .Params.author }}<span class="text-uppercase mr-3"><i class="fa-regular fa-user mr-1"></i>{{ . }}</span>{{ end }}
+          </div>
+
+          {{ .Content }}
+
+          <div class="share-option mt-5 clearfix p-4 bg-light rounded">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><strong>Share:</strong></li>
+              <li class="list-inline-item"><a href="https://facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank"><i class="fa-brands fa-facebook mr-2"></i>Facebook</a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank"><i class="fa-brands fa-twitter mr-2"></i>Twitter</a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank"><i class="fa-brands fa-linkedin mr-2"></i>Linkedin</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        {{ partial "sidebar.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

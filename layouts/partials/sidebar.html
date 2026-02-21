@@ -1,0 +1,34 @@
+<div class="sidebar-wrap">
+  <div class="widget mb-5">
+    <h4 class="mb-4">Recent Posts</h4>
+    {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
+    <div class="media mb-4">
+      {{ with .Params.image }}
+      <img src="{{ . | relURL }}" alt="" class="mr-3" width="80">
+      {{ end }}
+      <div class="media-body">
+        <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
+        <span class="text-sm text-color">{{ .Date.Format "January 2, 2006" }}</span>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="widget mb-5">
+    <h4 class="mb-4">Categories</h4>
+    <ul class="list-unstyled">
+      {{ range .Site.Taxonomies.categories }}
+      <li class="mb-2"><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a></li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <div class="widget mb-5">
+    <h4 class="mb-4">Tags</h4>
+    <div class="tags">
+      {{ range .Site.Taxonomies.tags }}
+      <a href="{{ .Page.RelPermalink }}" class="badge badge-light p-2 mr-1 mb-2">{{ .Page.Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+</div>

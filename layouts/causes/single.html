@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section page-title-next cause-single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="single-details">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-100">
+          {{ end }}
+
+          {{ with .Params.goal }}
+          <div class="bg-light p-4 d-flex align-items-center justify-content-between mb-4">
+            <div class="cause-meta">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Goal: <span class="font-weight-bold">${{ . }}</span></li>
+                <li class="list-inline-item"><i class="fa-solid fa-check text-color mr-2"></i>Raised: <span class="font-weight-bold">${{ $.Params.raised }}</span></li>
+              </ul>
+            </div>
+            <a href="{{ "donation/" | relURL }}" class="btn btn-main rounded">Donate Now</a>
+          </div>
+          {{ end }}
+
+          {{ .Content }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

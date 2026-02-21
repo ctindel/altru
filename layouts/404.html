@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="page-title overly">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="block text-center">
+          <span class="text-white">Page Not Found</span>
+          <h1 class="text-capitalize text-lg">404</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        <div class="error-content">
+          <h2 style="font-size: 120px;" class="text-color mb-4">404</h2>
+          <h3 class="mb-4">Oops! Page not found</h3>
+          <p class="mb-5">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+          <a href="{{ "/" | relURL }}" class="btn btn-main rounded">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

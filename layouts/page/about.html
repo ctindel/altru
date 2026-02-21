@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section about-page">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 col-md-5">
+        <div class="about-item-img">
+          <img src="{{ .Params.about_image | default "images/about/img-3.jpg" | relURL }}" alt="" class="w-100">
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-7">
+        <div class="about-item-content pl-lg-5">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ with .Site.Data.homepage.volunteer.partners }}
+<div class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center">
+          <h2 class="content-title mb-4">Our Conservation Partners</h2>
+          <p>We collaborate with leading environmental organizations worldwide to maximize our conservation impact.</p>
+        </div>
+      </div>
+    </div>
+    <div class="clients-item-wrap mt-5">
+      <div class="row">
+        {{ range . }}
+        <div class="col-lg-3 col-md-6 text-center mb-4">
+          <a href="#"><img src="{{ .logo | relURL }}" alt="{{ .name }}"></a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+<section class="section feature pb-0">
+  <div class="container">
+    <div class="row">
+      {{ range .Params.features }}
+      <div class="col-lg-4 col-md-4">
+        <div class="feature-inner text-center p-5">
+          <i class="fa-solid fa-{{ .icon }} mb-3" style="font-size: 40px;"></i>
+          <h4>{{ .title }}</h4>
+          <p class="mb-3">{{ .subtitle }}</p>
+          <p>{{ .description }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<div class="cta-block section mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="cta-content text-center">
+          <h2 class="text-white text-lg mb-5 mt-3">The earth does not belong to us. We belong to the earth.</h2>
+          <a href="{{ "donation/" | relURL }}" class="btn btn-main rounded">Make a donation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

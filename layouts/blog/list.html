@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section blog-wrap">
+  <div class="container">
+    <div class="row">
+      {{ range .Paginator.Pages }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="blog-item">
+          {{ with .Params.image }}
+          <a href="{{ $.RelPermalink }}"><img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-100"></a>
+          {{ end }}
+          <div class="card-body mt-2">
+            <span class="text-sm text-color text-uppercase font-weight-bold">{{ .Date.Format "January 2, 2006" }}</span>
+            <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p class="mb-4"><a href="{{ .RelPermalink }}" class="text-body">{{ .Summary | truncate 150 }}</a></p>
+            <a href="{{ .RelPermalink }}" class="btn btn-main rounded">Learn More</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12">
+        {{ template "_internal/pagination.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

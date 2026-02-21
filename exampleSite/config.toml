@@ -1,0 +1,155 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "Altru"
+theme = "altru"
+[pagination]
+  pagerSize = 9
+summaryLength = 30
+
+[params]
+  description = "Environmental Conservation & Sustainability"
+  author = "Altru"
+  logo = "images/logo.svg"
+  phone = "+1-800-555-5555"
+  email = "contact@example.com"
+  contact_address = "1250 Green Valley Road, Portland, OR 97201"
+  footer_address = "1250 Green Valley Road, Portland, OR 97201"
+
+  [[params.social]]
+    icon = "facebook"
+    name = "Facebook"
+    url = "https://facebook.com"
+  [[params.social]]
+    icon = "instagram"
+    name = "Instagram"
+    url = "https://instagram.com"
+  [[params.social]]
+    icon = "x-twitter"
+    name = "X / Twitter"
+    url = "https://x.com"
+  [[params.social]]
+    icon = "linkedin"
+    name = "LinkedIn"
+    url = "https://linkedin.com"
+  [[params.social]]
+    icon = "youtube"
+    name = "YouTube"
+    url = "https://youtube.com"
+  [[params.social]]
+    icon = "tiktok"
+    name = "TikTok"
+    url = "https://tiktok.com"
+  [[params.social]]
+    icon = "pinterest"
+    name = "Pinterest"
+    url = "https://pinterest.com"
+  [[params.social]]
+    icon = "reddit"
+    name = "Reddit"
+    url = "https://reddit.com"
+  [[params.social]]
+    icon = "threads"
+    name = "Threads"
+    url = "https://threads.net"
+  [[params.social]]
+    icon = "bluesky"
+    name = "Bluesky"
+    url = "https://bsky.app"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 3
+
+[[menu.main]]
+  name = "Causes"
+  identifier = "causes"
+  weight = 4
+  hasChildren = true
+
+  [[menu.main]]
+    name = "Reforestation Initiative"
+    url = "/causes/education-for-children/"
+    parent = "causes"
+    weight = 1
+
+  [[menu.main]]
+    name = "Ocean Cleanup Campaign"
+    url = "/causes/fund-for-education/"
+    parent = "causes"
+    weight = 2
+
+  [[menu.main]]
+    name = "Wildlife Habitat Protection"
+    url = "/causes/help-fund-for-education/"
+    parent = "causes"
+    weight = 3
+
+[[menu.main]]
+  name = "Get Involved"
+  identifier = "involved"
+  weight = 5
+  hasChildren = true
+
+  [[menu.main]]
+    name = "Volunteer"
+    url = "/volunteer/"
+    parent = "involved"
+    weight = 1
+
+  [[menu.main]]
+    name = "Donation"
+    url = "/donation/"
+    parent = "involved"
+    weight = 2
+
+[[menu.main]]
+  name = "Event"
+  url = "/event/"
+  weight = 6
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 7
+
+[[menu.main]]
+  name = "Donate Now"
+  url = "/donation/"
+  weight = 8
+  [menu.main.params]
+    cta = true
+
+[[menu.footer]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.footer]]
+  name = "Causes"
+  url = "/causes/"
+  weight = 2
+
+[[menu.footer]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 3
+
+[[menu.footer]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 4

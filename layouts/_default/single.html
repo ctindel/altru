@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<section class="section page-title-next">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="single-details">
+          {{ with .Params.image }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-100 mb-4">
+          {{ end }}
+
+          {{ .Content }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
