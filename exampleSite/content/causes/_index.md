@@ -1,4 +1,4 @@
 ---
-title: "Our Programs"
+title: "Our Initiatives"
 subtitle: "What We Do"
 ---

@@ -82,22 +82,16 @@ summaryLength = 30
   hasChildren = true
 
   [[menu.main]]
-    name = "Reforestation Initiative"
-    url = "/causes/education-for-children/"
+    name = "All Causes"
+    url = "/causes/"
     parent = "causes"
     weight = 1
 
   [[menu.main]]
-    name = "Ocean Cleanup Campaign"
-    url = "/causes/fund-for-education/"
+    name = "Donation"
+    url = "/donation/"
     parent = "causes"
     weight = 2
-
-  [[menu.main]]
-    name = "Wildlife Habitat Protection"
-    url = "/causes/help-fund-for-education/"
-    parent = "causes"
-    weight = 3
 
 [[menu.main]]
   name = "Get Involved"
@@ -126,13 +120,6 @@ summaryLength = 30
   name = "Contact"
   url = "/contact/"
   weight = 7
-
-[[menu.main]]
-  name = "Donate Now"
-  url = "/donation/"
-  weight = 8
-  [menu.main.params]
-    cta = true
 
 [[menu.footer]]
   name = "About"
