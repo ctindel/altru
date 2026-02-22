@@ -8,7 +8,9 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="cause-item">
           {{ with .Params.image }}
-          <img src="{{ . | relURL }}" class="w-100" alt="{{ $.Title }}">
+          <a href="{{ $.RelPermalink }}">
+            <img src="{{ . | relURL }}" class="w-100" alt="{{ $.Title }}">
+          </a>
           {{ end }}
           <div class="card-body">
             <h3 class="mb-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
