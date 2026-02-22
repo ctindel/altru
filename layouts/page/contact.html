@@ -1,122 +1,84 @@
 {{ define "main" }}
+{{ partial "page-title.html" . }}
 
-<style>
-  .contact-page-wrap {
-    background-color: #193c44;
-    color: #fff;
-    min-height: 70vh;
-    padding: 8rem 24px 4rem;
-  }
-  .contact-cards {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .contact-card {
-    text-align: center;
-    flex: 1;
-    min-width: 220px;
-    max-width: 280px;
-  }
-  .contact-card-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #ac885a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-  }
-  .contact-card-icon i {
-    font-size: 36px;
-    color: #fff;
-  }
-  .contact-card h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-  }
-  .contact-card a {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    line-height: 1.7;
-  }
-  .contact-card a:hover {
-    color: #ac885a;
-    text-decoration: underline;
-  }
-  .contact-social {
-    text-align: center;
-    margin-top: 3rem;
-  }
-  .contact-social h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  .contact-social a {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 24px;
-    color: #ac885a;
-    transition: color 0.3s;
-  }
-  .contact-social a:hover {
-    color: #fff;
-  }
-</style>
-
-<div class="contact-page-wrap">
-  <h1 style="text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:2.8rem; text-transform:uppercase; color:#fff; margin-bottom:3rem;">Contact Us</h1>
-  <div class="contact-cards">
-    {{ with .Site.Params.contact_address }}
-    <div class="contact-card">
-      <div class="contact-card-icon">
-        <i class="fa-solid fa-location-dot"></i>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="contact-content">
+          <h2 class="mb-5">{{ .Params.heading | default "We'd love to hear from you!" }}</h2>
+          <ul class="address-block list-unstyled">
+            {{ with .Site.Params.contact_address }}
+            <li>
+              <h6 class="mb-2">Address</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+            {{ with .Site.Params.email }}
+            <li>
+              <h6 class="mb-2">Email Us</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+            {{ with .Site.Params.phone }}
+            <li>
+              <h6 class="mb-2">Phone Number</h6>
+              {{ . }}
+            </li>
+            {{ end }}
+          </ul>
+          <ul class="social-icons list-inline mt-5">
+            <li><h6 class="mb-3">Find us on social media</h6></li>
+            {{ range .Site.Params.social }}
+            <li class="list-inline-item"><a href="{{ .url }}" target="_blank"><i class="fa-brands fa-{{ .icon }} mr-2"></i></a></li>
+            {{ end }}
+          </ul>
+        </div>
       </div>
-      <h4>Location</h4>
-      <a href="https://maps.google.com/?q={{ replace . " " "+" }}" target="_blank">{{ . }}</a>
-    </div>
-    {{ end }}
-    {{ with .Site.Params.phone }}
-    <div class="contact-card">
-      <div class="contact-card-icon">
-        <i class="fa-solid fa-phone"></i>
+      <div class="col-lg-5 col-md-6 offset-lg-1">
+        <div class="google-map">
+          <div id="map" style="height: 350px; width: 100%; background: #eee;"></div>
+        </div>
       </div>
-      <h4>Phone Number</h4>
-      <a href="tel:{{ replace (replace . "(" "") ")" "" | replace " " "" | replace "-" "" }}">{{ . }}</a>
     </div>
-    {{ end }}
-    {{ with .Site.Params.email }}
-    <div class="contact-card">
-      <div class="contact-card-icon">
-        <i class="fa-solid fa-envelope"></i>
-      </div>
-      <h4>Email Address</h4>
-      <a href="mailto:{{ . }}">{{ . }}</a>
-    </div>
-    {{ end }}
   </div>
-  {{ with .Site.Params.social }}
-  <div class="contact-social">
-    <h4>Find Us On Social Media</h4>
-    {{ range . }}
-    <a href="{{ .url }}" target="_blank"><i class="fa-brands fa-{{ .icon }}"></i></a>
-    {{ end }}
-  </div>
-  {{ end }}
-</div>
+</section>
 
+<section class="contact-wrap pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form action="{{ .Site.Params.formspree_url | default "#" }}" method="POST" class="contact__form">
+          <span class="text-color">Send a message</span>
+          <h3 class="text-md mb-4">Contact Form</h3>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Your Name *</label>
+              <input name="name" type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Email *</label>
+              <input name="email" type="email" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Subject *</label>
+              <input name="subject" type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Your Phone Number *</label>
+              <input name="phone" type="tel" class="form-control">
+            </div>
+            <div class="col-12 mb-3">
+              <label>Your Message *</label>
+              <textarea name="message" class="form-control" rows="6"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-main rounded" type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 {{ end }}
