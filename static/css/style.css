@@ -1049,6 +1049,15 @@ ul {
 /* ------------------------------------------------------------------
    12. Blog Section
    ------------------------------------------------------------------ */
+.latest-blog .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.latest-blog .row > [class*="col-"] {
+  display: flex;
+}
+
 .blog-item {
   background: var(--white);
   border: 1px solid #eee;
@@ -1056,6 +1065,9 @@ ul {
   overflow: hidden;
   margin-bottom: 30px;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .blog-item img {
