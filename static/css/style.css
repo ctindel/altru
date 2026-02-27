@@ -863,6 +863,15 @@ ul {
 /* ------------------------------------------------------------------
    10. Causes
    ------------------------------------------------------------------ */
+.causes .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.causes .row > [class*="col-"] {
+  display: flex;
+}
+
 .cause-item {
   background: var(--white);
   border-radius: 5px;
@@ -870,6 +879,9 @@ ul {
   margin-bottom: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .cause-item:hover {
